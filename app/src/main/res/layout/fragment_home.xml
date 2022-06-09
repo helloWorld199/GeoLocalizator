@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".fragments.HomeFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:id="@+id/materialCardView"
+        android:layout_width="364dp"
+        android:layout_height="247dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/card_color"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="3pt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.33"
+        app:strokeColor="@color/card_border">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/lat_image"
+                android:layout_width="37dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/latitude_icon"
+                app:layout_constraintEnd_toStartOf="@+id/latitude_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/image_color" />
+
+            <TextView
+                android:id="@+id/latitude_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/latitude"
+                android:textColor="@color/text_color"
+                android:textSize="16dp"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                app:layout_constraintStart_toEndOf="@+id/lat_image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/latitude"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/loading"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="@color/text_color"
+                android:textSize="16dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/latitude_text"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/long_image"
+                android:layout_width="37dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/longitude_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lat_image"
+                app:layout_constraintVertical_bias="0.276"
+                app:tint="@color/image_color" />
+
+            <TextView
+                android:id="@+id/longitude_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/longitude"
+                android:textColor="@color/text_color"
+                android:textSize="16dp"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/longitude"
+                app:layout_constraintStart_toEndOf="@+id/long_image"
+                app:layout_constraintTop_toBottomOf="@+id/latitude_text"
+                app:layout_constraintVertical_bias="0.407" />
+
+            <TextView
+                android:id="@+id/longitude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/loading"
+                android:textColor="@color/text_color"
+                android:textSize="16dp"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                app:layout_constraintBaseline_toBaselineOf="@+id/longitude_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/longitude_text" />
+
+            <ImageView
+                android:id="@+id/alt_image"
+                android:layout_width="37dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/altitude_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/long_image"
+                app:layout_constraintVertical_bias="1.0"
+                app:tint="@color/image_color" />
+
+            <TextView
+                android:id="@+id/altitude_text"
+                android:layout_width="62dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="69dp"
+                android:text="@string/altitude"
+                android:textColor="@color/text_color"
+                android:textSize="16dp"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                app:layout_constraintStart_toEndOf="@+id/alt_image"
+                app:layout_constraintTop_toBottomOf="@+id/longitude_text" />
+
+            <TextView
+                android:id="@+id/altitude"
+                android:layout_width="211dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/loading"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="@color/text_color"
+                android:textSize="16dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/altitude_text"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="155dp" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/first_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/spinner"
+                app:layout_constraintEnd_toEndOf="@+id/latitude"
+                app:layout_constraintHorizontal_bias="0.534"
+                app:layout_constraintStart_toEndOf="@+id/latitude_text"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/second_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/spinner"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/longitude"
+                app:layout_constraintStart_toEndOf="@+id/longitude_text"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/third_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/spinner"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/altitude"
+                app:layout_constraintStart_toStartOf="@+id/altitude" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <Button
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        android:id="@+id/elevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:text="Recent Locations"
+        android:textColor="@color/text_color"
+        app:backgroundTint="@color/button_color"
+        app:icon="@drawable/recent_locations_icon"
+        app:iconTint="@color/text_color"
+        app:elevation="3pt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+        app:layout_constraintVertical_bias="0.66" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

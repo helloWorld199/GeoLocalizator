@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:strokeWidth="0.5pt"
+        app:strokeColor="@color/image_color"
+        app:cardElevation="2pt"
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="@color/card_color">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/lat_image"
+                android:layout_width="37dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/latitude_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/image_color" />
+
+
+            <TextView
+                android:id="@+id/item_latitude"
+                android:layout_width="206dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="PROVA"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="@color/text_color"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lat_image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/long_image"
+                android:layout_width="37dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="96dp"
+                android:src="@drawable/longitude_icon"
+                app:layout_constraintBottom_toTopOf="@+id/alt_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lat_image"
+                app:tint="@color/image_color" />
+
+            <TextView
+                android:id="@+id/item_longitude"
+                android:layout_width="206dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="PROVA"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="@color/text_color"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/item_altitude"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/long_image"
+                app:layout_constraintTop_toBottomOf="@+id/item_latitude"
+                app:layout_constraintVertical_bias="0.494" />
+
+            <ImageView
+                android:id="@+id/alt_image"
+                android:layout_width="37dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="96dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/altitude_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:tint="@color/image_color" />
+
+            <TextView
+                android:id="@+id/item_altitude"
+                android:layout_width="206dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_horizontal"
+                android:text="PROVA"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="@color/text_color"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/alt_image"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/itemDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="PROVA"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="@color/image_color"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/long_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>
