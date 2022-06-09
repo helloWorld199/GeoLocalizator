@@ -49,7 +49,7 @@ class LocationsListFragment : Fragment() {
         deleteButton = view.findViewById(R.id.deleteButton)
 
         updateButton.setOnClickListener{
-            Log.d(null,"------- LocationsListFragment ---> updateButton().setOnClickListener -------")
+            //Log.d(null,"------- LocationsListFragment ---> updateButton().setOnClickListener -------")
             recyclerView.adapter = LocationsListAdapter(BackgroundLocationService.myLocationDao!!.getAll())
         }
 

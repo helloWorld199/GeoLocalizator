@@ -32,12 +32,12 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(null, "------- MainActivity ---> onCreate() -------")
+        //Log.d(null, "------- MainActivity ---> onCreate() -------")
         setContentView(R.layout.activity_main)
 
         // Chiedi i permessi
         getPermissions()
-        Log.d(null, "------- MainActivity ---> onCreate() ---> Richiesta fatta -------")
+        //Log.d(null, "------- MainActivity ---> onCreate() ---> Richiesta fatta -------")
 
         // Se ho i permessi, e il servizio non è attivo, avvialo.
         if(permissionsObtained && !isPlaying){
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 // Se la richiesta viene cancellata, l'array con i risultati sarà vuoto
                 if ((grantResults.isNotEmpty() &&
                             grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    Log.d(null, "------- MainActivity ---> onRequestPermissionsResult ---> permessi ottenuti? -------")
+                    //Log.d(null, "------- MainActivity ---> onRequestPermissionsResult ---> permessi ottenuti? -------")
                     // Una volta ottenuti i permssi, avvia il servizio di registrazione della posizione
                     val i : Intent = Intent(applicationContext, BackgroundLocationService::class.java)
                     i.putExtra(BackgroundLocationService.PLAY_START, true)
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                     // l'app funzioni correttamente
                     val toast : Toast = Toast.makeText(this, "E' necessario dare i permessi affinchè l'app funzioni!", Toast.LENGTH_SHORT)
                     toast.show()
-                    Log.d(null, "------- MainActivity ---> onRequestPermissionsResult ---> Richiedi di nuovo i permessi -------")
+                    //Log.d(null, "------- MainActivity ---> onRequestPermissionsResult ---> Richiedi di nuovo i permessi -------")
 
                     // Aspetto 2,5 secondi prima di rifare la richiesta dei permessi, in modo
                     // tale che il toast sia interamente leggibile.
@@ -117,18 +117,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onPause() {
-        Log.d(null, "------- MainActivity ---> onPause() -------")
-        super.onPause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(null, "------- MainActivity ---> onResume() -------")
-    }
-
     override fun onDestroy() {
-        Log.d(null, "------- MainActivity ---> onDestroy() -------")
+        //Log.d(null, "------- MainActivity ---> onDestroy() -------")
 
         // L'activity viene distrutta, quindi fermo il servizio
         val i : Intent = Intent(applicationContext, BackgroundLocationService::class.java)

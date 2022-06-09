@@ -18,6 +18,7 @@ dovuto a qualche impostazione/regolazione interna dell'API utilizzata
 
 package com.example.geolocalization.services
 
+import android.annotation.SuppressLint
 import android.app.*
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -57,8 +58,9 @@ class BackgroundLocationService : Service() {
         return null
     }
 
+    @SuppressLint("MissingPermission")
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        Log.d(null, "---------- onStartCommand di BackgroundLocationService ---------")
+        //Log.d(null, "---------- onStartCommand di BackgroundLocationService ---------")
         if (intent != null) {
             if (intent.getBooleanExtra(PLAY_START, false)){
                 //Avvio il servizio in foreground
@@ -88,7 +90,7 @@ class BackgroundLocationService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-        Log.d(null, "---------- onCreate di BackgroundLocationService ---------")
+        //Log.d(null, "---------- onCreate di BackgroundLocationService ---------")
 
         myLocationDao = AppDatabase.getDatabase(applicationContext).myLocationDao()
 
@@ -106,14 +108,14 @@ class BackgroundLocationService : Service() {
             override fun onLocationResult(p0: LocationResult) {
                 super.onLocationResult(p0)
 
-                /*Log.d(null, "--------- onLocationResult ---------")
+                /*//Log.d(null, "--------- onLocationResult ---------")
                 //Prendi l'ultima posizione aggiornata e aggiorna la UI
                 var i = 0
                 for(location in p0.locations){
-                    Log.d(null, "-----" + i)
-                    Log.d(null, location.latitude.toString())
-                    Log.d(null, location.longitude.toString())
-                    Log.d(null, location.altitude.toString())
+                    //Log.d(null, "-----" + i)
+                    //Log.d(null, location.latitude.toString())
+                    //Log.d(null, location.longitude.toString())
+                    //Log.d(null, location.altitude.toString())
                     i++
                 }*/
 
@@ -135,8 +137,8 @@ class BackgroundLocationService : Service() {
                 //Chiave primaria dell'elemento nel database: tempo in millisecondi
                 val key = Calendar.getInstance().timeInMillis
 
-                //Log.d(null, key.toString())
-                Log.d(null, date_elements[1] + date_elements[2] + date_elements[3])
+                ////Log.d(null, key.toString())
+                //Log.d(null, date_elements[1] + date_elements[2] + date_elements[3])
 
                 //Inserimento nel database
                 myLocationDao?.insert(MyLocation(key, location.latitude, location.longitude, altitude,
@@ -156,6 +158,7 @@ class BackgroundLocationService : Service() {
      * Richiede che venga avviata la procedura per ottenere aggiornamenti sulla posizione
      * in tempo reale.
      */
+    @SuppressLint("MissingPermission")
     private fun startLocationUpdates(){
         if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ) {
             fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
@@ -175,7 +178,7 @@ class BackgroundLocationService : Service() {
         sendBroadcast(intent)
 
         stopForeground(true)
-        Log.d(null, "-------- stopLocationUpdates -------")
+        //Log.d(null, "-------- stopLocationUpdates -------")
         //Smetti di ricevere aggiornamenti sulla posizione
         fusedLocationClient.removeLocationUpdates(locationCallback)
     }
@@ -185,7 +188,7 @@ class BackgroundLocationService : Service() {
      * che è iniziata l'acquisizione in foreground.
      */
     private fun startForegroundTracking(){
-        Log.d(null, "------- startForegroundTracking ---> creazione notification channel -------")
+        //Log.d(null, "------- startForegroundTracking ---> creazione notification channel -------")
         // Create the NotificationChannel, but only on API level 26+ because
         // the NotificationChannel class is new and not in the support library.
         // See https://developer.android.com/training/notify-user/channels
@@ -201,7 +204,7 @@ class BackgroundLocationService : Service() {
             )
             notificationManager.createNotificationChannel(channel)
         }
-        Log.d(null, "------- startForegroundTracking ---> creazione notifica -------")
+        //Log.d(null, "------- startForegroundTracking ---> creazione notifica -------")
 
         // Costruzione della notifica di foreground
         val notificationBuilder: Notification.Builder =

@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
 
     val uiUpdated : BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            Log.d(null, "--------- onReceive ----------")
+            //Log.d(null, "--------- onReceive ----------")
             if (intent != null) {
                 if(resultReceived) {
                     firstLoading.visibility = View.GONE
@@ -64,7 +64,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(null,"------- HomeFragment ---> onCreateView() -------")
+        //Log.d(null,"------- HomeFragment ---> onCreateView() -------")
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
@@ -87,7 +87,7 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Log.d(null,"------- HomeFragment ---> onResume() -------")
+        //Log.d(null,"------- HomeFragment ---> onResume() -------")
         resultReceived = true
         //Registro il ricevitore, quindi rendo il fragment disponibile alla
         //ricezione di nuove posizioni
@@ -95,7 +95,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onPause() {
-        Log.d(null,"------- HomeFragment ---> onPause() -------")
+        //Log.d(null,"------- HomeFragment ---> onPause() -------")
         //"De-registro" il ricevitore, quindi rendo il fragment non più
         //disponibile alla ricezione di nuove posizioni
         context?.unregisterReceiver(uiUpdated)
